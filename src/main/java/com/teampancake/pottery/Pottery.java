@@ -16,11 +16,14 @@ public class Pottery {
     public static final String MOD_ID = "pottery";
 
     public Pottery(IEventBus modEventBus) {
+        PTTabs.TABS.register(modEventBus);
         PTItems.ITEMS.register(modEventBus);
         PTBlocks.BLOCKS.register(modEventBus);
-        PTTabs.TABS.register(modEventBus);
         PTMobEffect.MOB_EFFECTS.register(modEventBus);
+        PTEntityTypes.ENTITY_TYPES.register(modEventBus);
         PTEnchantments.ENCHANTMENTS.register(modEventBus);
+        PTRecipes.RECIPE_SERIALIZERS.register(modEventBus);
+        PTRecipes.RECIPE_TYPES.register(modEventBus);
         NeoForge.EVENT_BUS.register(this);
         modEventBus.addListener(this::addCreative);
     }

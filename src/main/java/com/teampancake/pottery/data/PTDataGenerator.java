@@ -4,6 +4,7 @@ import com.teampancake.pottery.Pottery;
 import com.teampancake.pottery.data.provider.PTBlockStateProvider;
 import com.teampancake.pottery.data.provider.PTItemModelProvider;
 import com.teampancake.pottery.data.provider.PTLootTableProvider;
+import com.teampancake.pottery.data.provider.PTRecipeProvider;
 import com.teampancake.pottery.data.provider.lang.PTLanguageProviderENUS;
 import com.teampancake.pottery.data.provider.lang.PTLanguageProviderZHCN;
 import com.teampancake.pottery.data.provider.tag.PTBlockTagsProvider;
@@ -33,6 +34,7 @@ public class PTDataGenerator {
                 output, provider, blockTagsProvider.contentsGetter(), existingFileHelper));
         generator.addProvider(event.includeClient(), new PTBlockStateProvider(output, existingFileHelper));
         generator.addProvider(event.includeClient(), new PTItemModelProvider(output, existingFileHelper));
+        generator.addProvider(event.includeServer(), new PTRecipeProvider(output, provider));
         generator.addProvider(event.includeClient(), new PTLanguageProviderENUS(output));
         generator.addProvider(event.includeClient(), new PTLanguageProviderZHCN(output));
         generator.addProvider(event.includeServer(), new PTLootTableProvider(output));
